@@ -1,8 +1,30 @@
-# React + Vite
+# google firebase google login 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Initial Installation
 
-Currently, two official plugins are available:
+1. **Visit:** [console.firebase.google.com](https://console.firebase.google.com)
+2. **Create Project:** (Skip Google Analytics)
+3. **Register App:** (Create config)
+4. **Install Firebase:** `npm install firebase`
+5. **Add Config File:** Add the Firebase config file to your project.
+6. **DANGER:** Do not publish or make Firebase config public by pushing to GitHub.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Integration
+
+7. **Visit:** Go to Docs > Build > Authentication > Web > Get Started
+8. **Export App:** From the `firebase.config.js` file, export the default app.
+9. **Login.jsx:** Import `getAuth` from `firebase/auth`.
+10. **Create Authentication Object:** `const auth = getAuth(app)`
+
+## Provider Setup
+
+11. **Import Google Auth Provider:** Create a new provider.
+12. **Use signInWithPopUp:** Pass authentication and provider.
+13. **Activate Sign-In Method:** (Google, Facebook, GitHub, etc.)
+14. **[Vite]:** Change `127.0.0.1` to `localhost`.
+
+## More Auth Provider
+
+1. **Activate the Auth Provider:** Create app, provide redirect URL, client ID, client secret.
+2. *(Additional steps if necessary)*
+
