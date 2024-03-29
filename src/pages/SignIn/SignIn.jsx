@@ -1,11 +1,29 @@
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase';
+import { Result } from 'postcss';
+import { useState } from 'react';
+
 const SignIn = () => {
+  const [user, setUser] = useState(null);
+
   const auth = getAuth(app);
+
   const provider = new GoogleAuthProvider();
+
   const handleGoogleSingin = () => {
     console.log('google sing in handle working fine');
+
+    signInWithPopup(auth, provider)
+      .then(result => {
+        const logedUser = result.user;
+
+        console.log(logedUser);
+
+        setUser(logedUser);
+      })
+      .catch(error => console.error(error));
   };
+  console.log('coming from user state ', user);
   return (
     <div className="flex items-center justify-center  max-w-6xl mx-auto min-h-[calc(100vh-116px)] mt-10">
       <div className="hero min-h-screen bg-base-200 shadow-xl rounded-lg ">
